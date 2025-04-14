@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Carousel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" type="module" defer></script>
 </head>
 <body>
     <div class="image-carousel">
         <div id="frame">
-            <div id="slides">
+            <div id="slide-container">
                 <img src="images/pexels-andrejcook-131723.jpg" alt="Image 1">
                 <img src="images/pexels-fotios-photos-1107717.jpg" alt="Image 2">
                 <img src="images/pexels-pixabay-147411.jpg" alt="Image 3">
                 <img src="images/pexels-pixabay-462162.jpg" alt="Image 4">
                 <img src="images/pexels-samandgos-709552.jpg" alt="Image 5">
             </div>
+        </div>
+        <div id="slide-swipe">
+            <button id="left-swipe">Left</button>
+            <button id="right-swipe">Right</button>
         </div>
     </div>
 </body>
