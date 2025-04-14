@@ -1,39 +1,45 @@
-function createCarousel(frame, frameWidth, frameHeight) {
-    frame.style.width = parseFloat(frameWidth) + 'px';
+function createCarousel(frame, state, frameWidth, frameHeight) {
+    state.carouselWidth = parseFloat(frameWidth);
+    state.maxSlideNumber = frame.firstElementChild.children.length - 1;
+    frame.style.width = state.carouselWidth + 'px';
     frame.style.height = parseFloat(frameHeight) + 'px';
     frame.style.overflow = 'hidden';
     frame.firstElementChild.style.width = 'max-content';
     frame.firstElementChild.style.display = 'grid';
     frame.firstElementChild.style.gridAutoFlow = 'column';
     [...frame.firstElementChild.children].forEach(slide => {
-        slide.style.width = parseFloat(frameWidth) + 'px';
+        slide.style.width = state.carouselWidth + 'px';
         slide.style.objectFit = 'cover'; 
     });
 }
 
-function chooseSlide(slideContainer, slideNumber) {
+function chooseSlide(slideContainer, state, imgNumber) {
+    state.slideNumber = imgNumber;
     slideContainer.style.transform = `translateX(
-        ${-parseFloat(slideContainer.firstElementChild.style.width) * slideNumber + 'px'}
+        ${-state.carouselWidth * imgNumber + 'px'}
     )`;
-    return slideNumber;
 }
 
-function handleSwipe(event, slideContainer, slideNumber) {
-    let maxSlideNumber = slideContainer.children.length - 1;
+function handleSwipe(event, slideContainer, state) {
     switch(event.target) {
         case event.target.parentElement.firstElementChild:
-            if(slideNumber === 0) {
-                return chooseSlide(slideContainer, slideNumber = maxSlideNumber);
+            if(state.slideNumber === 0) {
+                chooseSlide(slideContainer, state, state.maxSlideNumber);
             } else {
-                return chooseSlide(slideContainer, --slideNumber);
+                chooseSlide(slideContainer, state, state.slideNumber - 1);
             }
+            break;
         case event.target.parentElement.lastElementChild:
-            if(slideNumber === maxSlideNumber) {
-                return chooseSlide(slideContainer, slideNumber = 0);
+            if(state.slideNumber === state.maxSlideNumber) {
+                chooseSlide(slideContainer, state, 0);
             } else {
-                return chooseSlide(slideContainer, ++slideNumber);
+                chooseSlide(slideContainer, state, state.slideNumber + 1);
             }            
     }
 }
 
-export { createCarousel, chooseSlide, handleSwipe }
+function handleNav(event, slideContainer, state) {
+
+}
+
+export { createCarousel, chooseSlide, handleSwipe, handleNav }

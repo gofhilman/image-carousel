@@ -1,13 +1,20 @@
-import { createCarousel, chooseSlide, handleSwipe } from "./image-carousel.js";
+import { 
+    createCarousel, chooseSlide, handleSwipe 
+} from "./image-carousel.js";
 
 const frame = document.querySelector('#frame');
 const slideContainer = document.querySelector('#slide-container');
 const slideSwipe = document.querySelector('#slide-swipe');
+const navDots = document.querySelector('#nav-dots');
 
-let slideNumber = 0;
+const state = {
+    slideNumber: 0,
+    maxSlideNumber: 0,
+    carouselWidth: 0
+};
 
-createCarousel(frame, 1000, 500);
-slideNumber = chooseSlide(slideContainer, slideNumber);
+createCarousel(frame, state, 1000, 500);
+chooseSlide(slideContainer, state, 0);
 slideSwipe.addEventListener('click', (event) => {
-    slideNumber = handleSwipe(event, slideContainer, slideNumber);
+    handleSwipe(event, slideContainer, state);
 });
