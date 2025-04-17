@@ -1,2 +1,2 @@
 # image-carousel
-An image carousel package with with an implementation example
+An image carousel package with an implementation example
