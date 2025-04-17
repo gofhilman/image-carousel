@@ -1,0 +1,29 @@
+{
+  "name": "@gofhilman/image-carousel",
+  "version": "1.0.0",
+  "description": "An image carousel package with with an implementation example",
+  "keywords": [
+    "image",
+    "carousel",
+    "carousel",
+    "swipe",
+    "cycle",
+    "navigation",
+    "dots"
+  ],
+  "homepage": "https://github.com/gofhilman/image-carousel#readme",
+  "bugs": {
+    "url": "https://github.com/gofhilman/image-carousel/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gofhilman/image-carousel.git"
+  },
+  "license": "MIT",
+  "author": "Hilman Fikry",
+  "type": "module",
+  "main": "image-carousel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

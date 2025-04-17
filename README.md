@@ -1,6 +1,2 @@
 # image-carousel
-Build an image carousel package
-
-## To Do
-
-- Change the slideNumber to be an object property
+An image carousel package with with an implementation example

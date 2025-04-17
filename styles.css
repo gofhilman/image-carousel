@@ -10,6 +10,16 @@
     justify-content: space-between;
 }
 
+#left-swipe, #right-swipe {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#left-swipe::before, #right-swipe::before {
+    content: 'Swipe';
+    font-size: 2rem;
+    color: white;
+}
+
 #nav-dots {
     display: flex;
     gap: 10px;
