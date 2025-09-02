@@ -1,10 +1,9 @@
 {
   "name": "@gofhilman/image-carousel",
   "version": "1.0.1",
-  "description": "An image carousel package with with an implementation example",
+  "description": "An image carousel package with an implementation example",
   "keywords": [
     "image",
-    "carousel",
     "carousel",
     "swipe",
     "cycle",
